@@ -10,7 +10,7 @@ README = path.abspath(path.join(path.dirname(__file__), 'README.md'))
 desc = 'A Python util to easily download videos from vine'
 
 setup(
-    name='vine-dwl',
+    name='vine_dwl',
     version='0.0.1',
     author='Zaurky',
     author_email='zaurky@zeb.re',
@@ -18,7 +18,7 @@ setup(
     long_description=open(README).read(),
     license='GPLV2',
     url='http://github.com/zaurky/vine_dwl',
-    packages=['vine-dwl'],
+    packages=['vine_dwl'],
     install_requires=[
         'BeautifulSoup',
     ],
