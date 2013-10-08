@@ -1,0 +1,25 @@
+#!/usr/bin/python
+"""
+Exemple script of how VineDwl can be used
+"""
+
+from vine_dwl import VineDwl
+from optparse import OptionParser
+
+
+def main():
+    """ create a VineDwl object and use it with command line params """
+    parser = OptionParser()
+    parser.add_option("-f", "--file", dest="filename",
+                      help="write downloaded file to FILE", metavar="FILE")
+    parser.add_option("-u", "--url", dest="url",
+                      help="download from url URL", metavar="URL")
+
+    options, _args = parser.parse_args()
+
+    dwl = VineDwl(options.url)
+    dwl.write_video(options.filename)
+
+
+if __name__ == '__main__':
+    main()

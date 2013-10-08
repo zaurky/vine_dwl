@@ -19,6 +19,7 @@ setup(
     license='GPLV2',
     url='http://github.com/zaurky/vine_dwl',
     packages=['vine_dwl'],
+    scripts=['bin/vine_dwl'],
     install_requires=[
         'BeautifulSoup',
     ],
