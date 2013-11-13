@@ -32,7 +32,8 @@ class VineDwl(object):
             source = soup.body.find('source', attrs={'type': 'video/mp4'})
             self._video_url = dict(source.attrs)['src']
             if not self._video_url.startswith('http'):
-                self._video_url = self._video_url.replace('.*//', 'http://')
+                self._video_url = self._video_url.split('//')
+                self._video_url = 'http://%s' % self._video_url[1]
 
         return self._video_url
 
