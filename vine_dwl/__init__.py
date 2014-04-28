@@ -29,8 +29,8 @@ class VineDwl(object):
         """ extracting url from html data gotten at `self.url` """
         if not self._video_url:
             soup = BeautifulSoup(urllib2.urlopen(self._url))
-            source = soup.body.find('source', attrs={'type': 'video/mp4'})
-            self._video_url = dict(source.attrs)['src']
+            source = soup.body.find('meta', attrs={'itemprop': 'contentURL'})
+            self._video_url = dict(source.attrs)['content']
             if not self._video_url.startswith('http'):
                 self._video_url = self._video_url.split('//')
                 self._video_url = 'http://%s' % self._video_url[1]
