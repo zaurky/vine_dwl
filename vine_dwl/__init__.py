@@ -30,7 +30,12 @@ class VineDwl(object):
         if not self._video_url:
             soup = BeautifulSoup(urllib2.urlopen(self._url))
             source = soup.body.find('meta', attrs={'itemprop': 'contentURL'})
+            if not source:
+                # new vine version ?
+                source = soup.body.find('meta', attrs={'itemprop': 'contentUrl'})
+
             self._video_url = dict(source.attrs)['content']
+
             if not self._video_url.startswith('http'):
                 self._video_url = self._video_url.split('//')
                 self._video_url = 'http://%s' % self._video_url[1]
