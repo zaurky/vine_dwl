@@ -33,6 +33,9 @@ class VineDwl(object):
             if not source:
                 # new vine version ?
                 source = soup.body.find('meta', attrs={'itemprop': 'contentUrl'})
+            if not source:
+                # newer vine version ?
+                source = soup.head.find('meta', attrs={'property': 'twitter:player:stream'})
 
             self._video_url = dict(source.attrs)['content']
 
